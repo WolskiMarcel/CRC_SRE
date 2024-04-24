@@ -109,11 +109,10 @@ ExecStart=/home/prometheus/alertmanager/alertmanager --config.file=/home/prometh
 WantedBy=default.target
 EOF
 
-echo "enable services"
+#off for step in workflow, for manual using uncomment
 
-systemctl enable prometheus.service node_exporter.service postgres_exporter.service
-
-echo "start services and check status"
-
-systemctl start prometheus.service node_exporter.service postgres_exporter.service alertmanager.service
-systemctl status prometheus.service node_exporter.service postgres_exporter.service alertmanager.service
+#echo "enable services"
+#systemctl enable prometheus.service node_exporter.service postgres_exporter.service
+#echo "start services and check status"
+#systemctl start prometheus.service node_exporter.service postgres_exporter.service alertmanager.service
+#systemctl status prometheus.service node_exporter.service postgres_exporter.service alertmanager.service
