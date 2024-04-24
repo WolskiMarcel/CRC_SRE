@@ -8,6 +8,7 @@ jobs:
   config_monitoring:
     runs-on: ubuntu-latest
     steps:
+    
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -15,16 +16,25 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: |
+          run: |
             whoami
-            mkdir /tmp/crc_files/
+            echo "switch to root"
+            sudo su
+            sudo useradd -m -s /bin/bash prometheus
+            sudo chown -R prometheus:prometheus /home/prometheus/
+            mkdir -p /etc/crc_files/
+            exit
           
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - uses: actions/checkout@v3   
+      - name: copying files
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          source: "alerts.yml,grafana_install.sh,postgres_exporter.env,prometheus.yml,prometheus_install.sh"
+          target: /tmp/crc/
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
