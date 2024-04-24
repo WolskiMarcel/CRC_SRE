@@ -1,0 +1,47 @@
+groups:
+- name: alerts
+  rules:
+  - alert: InstanceDown
+    expr: up == 0
+    for: 1m
+    labels:
+      severity: "critical"
+    annotations:
+      summary: "Endpoint {{ $labels.instance }} down"
+      description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 1 minutes."
+
+  - alert: HostOutOfMemory
+    expr: node_memory_MemAvailable / node_memory_MemTotal * 100 < 25
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Host out of memory (instance {{ $labels.instance }})"
+      description: "Node memory is filling up (< 25% left)\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"
+
+  - alert: DBConnectionError
+    expr: pg_up == 0
+    labels:
+      severity: critical
+    annotations:
+      summary: "Database connection issue"
+      description: "The database connection is down."
+
+  - alert: PrometheusJobMissing
+    expr: count(up{job="prometheus"}) == 0
+    for: 0m
+    labels:
+      severity: warning
+    annotations:
+      summary: Prometheus job missing (instance {{ $labels.instance }})
+      description: "A Prometheus job has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+  - alert: HighCPUUsage
+    expr: node_load1 > 0.75
+    for: 1m
+    labels:
+      severity: critical
+    annotations:
+      summary: "High CPU usage detected"
+      description: "The CPU load has exceeded 0.75 for the last 1 minutes."
+
