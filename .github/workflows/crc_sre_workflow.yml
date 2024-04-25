@@ -59,12 +59,12 @@ jobs:
             receivers:
               - name: 'email_notifications'
               email_configs:
-              - to: ${{ secrets.MAILTO }}
-                from: alerttesting2288@outlook.com
-                smarthost: smtp.outlook.com:587
-                auth_username: alerttesting2288@outlook.com
-                auth_identity: alerttesting2288@outlook.com
-                auth_password: alerttesting1234
+              - to: ${{ secrets.EMAIL_TO }}
+                from: ${{ secrets.EMAIL_FROM }}
+                smarthost: ${{ secrets.SMARTHOST }}
+                auth_username: ${{ secrets.EMAIL_FROM }}
+                auth_identity: ${{ secrets.EMAIL_FROM }}
+                auth_password: ${{ secrets.EMAIL_PASS }}
                 send_resolved: true
             EOF
             
