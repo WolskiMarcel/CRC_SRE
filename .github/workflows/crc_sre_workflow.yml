@@ -65,13 +65,11 @@ jobs:
                 auth_username: ${{ secrets.EMAIL_FROM }}
                 auth_identity: ${{ secrets.EMAIL_FROM }}
                 auth_password: ${{ secrets.EMAIL_PASS }}
-                send_resolved: true
-            EOF
-            
-                    
+                send_resolved: true  
             inhibit_rules:
               - source_match:
                   severity: 'critical'
+            EOF
 
 
       # Runs a set of commands using the runners shell
