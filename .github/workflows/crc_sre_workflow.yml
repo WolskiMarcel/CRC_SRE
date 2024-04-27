@@ -104,8 +104,8 @@ jobs:
           script: |
             sudo su -
             echo "enable services"
-            systemctl enable prometheus.service node_exporter.service postgres_exporter.service
+            sudo systemctl enable prometheus.service node_exporter.service postgres_exporter.service
             echo "start services and check status"
-            systemctl start prometheus.service node_exporter.service postgres_exporter.service alertmanager.service
-            systemctl status prometheus.service node_exporter.service postgres_exporter.service alertmanager.service
+            sudo systemctl start prometheus.service node_exporter.service postgres_exporter.service alertmanager.service
+            sudo systemctl status prometheus.service node_exporter.service postgres_exporter.service alertmanager.service
             exit
