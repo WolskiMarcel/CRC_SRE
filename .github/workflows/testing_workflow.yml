@@ -18,7 +18,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           source: "alerts.yml,grafana_install.sh,postgres_exporter.env,prometheus.yml,prometheus_install.sh"
-          target: /tmp/crc/
+          target: /tmp/conf_files/
 
       - name: create alert file
         uses: appleboy/ssh-action@v1.0.3
@@ -27,10 +27,10 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          run: |
+          script: |
             echo "switch to root"
             sudo su
-            sudo cat > /tmp/crc_files/alertmanager.yml << EOF
+            sudo cat > /tmp/conf_files/alertmanager.yml << EOF
             global:
               resolve_timeout: 1m
 
@@ -61,3 +61,8 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          #echo "enable services"
+          #systemctl enable prometheus.service node_exporter.service postgres_exporter.service
+          #echo "start services and check status"
+          #systemctl start prometheus.service node_exporter.service postgres_exporter.service alertmanager.service
+          #systemctl status prometheus.service node_exporter.service postgres_exporter.service alertmanager.service
