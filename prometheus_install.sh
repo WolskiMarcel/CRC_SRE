@@ -31,9 +31,9 @@ mkdir -p /home/prometheus/prometheus/data
 mkdir -p /home/prometheus/alertmanager/data
 mkdir -p /home/prometheus/prometheus/rules
 
-mv -f /tmp/crc_files/prometheus.yml /home/prometheus/prometheus/prometheus.yml
-mv -f /tmp/crc_files/alerts.yml /home/prometheus/prometheus/rules/alerts.yml
-mv -f /tmp/crc_files/alertmanager.yml /home/prometheus/alertmanager/alertmanager.yml
+mv -f /tmp/conf_files/prometheus.yml /home/prometheus/prometheus/prometheus.yml
+mv -f /tmp/conf_files/alerts.yml /home/prometheus/prometheus/rules/alerts.yml
+mv -f /tmp/conf_files/alertmanager.yml /home/prometheus/alertmanager/alertmanager.yml
 
 echo "correct permissions"
 
