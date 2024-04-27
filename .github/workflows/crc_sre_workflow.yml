@@ -57,7 +57,7 @@ jobs:
               receiver: 'email_notifications'
               
             receivers:
-              - name: 'email_notifications'
+            - name: 'email_notifications'
               email_configs:
               - to: ${{ secrets.EMAIL_TO }}
                 from: ${{ secrets.EMAIL_FROM }}
