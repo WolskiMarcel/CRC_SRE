@@ -2,6 +2,7 @@
 
 echo "create users"
 
+sudo su
 sudo useradd -m -s /bin/bash prometheus
 
 echo "download packages"
