@@ -2,6 +2,7 @@
 
 echo "download package"
 
+sudo su
 wget -q -O gpg.key https://rpm.grafana.com/gpg.key
 
 echo "importing key GPG key"
