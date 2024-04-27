@@ -44,7 +44,7 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             echo "switch to root"
-            sudo su
+            sudo su -
             sudo cat > /tmp/conf_files/alertmanager.yml << EOF
             global:
               resolve_timeout: 1m
@@ -82,7 +82,7 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             echo "Executing scripts"
-            sudo su
+            sudo su -
             chmod +x /tmp/conf_files/prometheus_install.sh
             cd /tmp/conf_files/
             ./prometheus_install.sh
@@ -102,7 +102,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            sudo su
+            sudo su -
             echo "enable services"
             systemctl enable prometheus.service node_exporter.service postgres_exporter.service
             echo "start services and check status"
