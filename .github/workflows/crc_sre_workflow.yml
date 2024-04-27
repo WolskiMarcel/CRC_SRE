@@ -87,7 +87,7 @@ jobs:
             cd /tmp/conf_files/
             #./prometheus_install.sh
 
-            chmod +x /tmp/conf_files/grafa_install.sh
+            chmod +x /tmp/conf_files/grafana_install.sh
             
             #./grafana_install.sh
             exit
