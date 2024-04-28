@@ -38,7 +38,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "adijdgf41wh6oc"
+        "uid": "ddk4sl1vxmr5sa"
       },
       "description": "Busy state of all CPU cores together",
       "fieldConfig": {
@@ -108,7 +108,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "adijdgf41wh6oc"
+            "uid": "ddk4sl1vxmr5sa"
           },
           "editorMode": "code",
           "expr": "100 - (avg by(instance) (irate(node_cpu_seconds_total{mode=\"idle\"}[1m])) * 100)",
@@ -124,7 +124,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "adijdgf41wh6oc"
+        "uid": "ddk4sl1vxmr5sa"
       },
       "description": "Non available RAM memory",
       "fieldConfig": {
@@ -194,7 +194,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "adijdgf41wh6oc"
+            "uid": "ddk4sl1vxmr5sa"
           },
           "editorMode": "code",
           "expr": "(1 - (node_memory_MemAvailable_bytes{instance=\"localhost:9100\", job=\"node_exporter\"} / node_memory_MemTotal_bytes{instance=\"localhost:9100\", job=\"node_exporter\"})) * 100",
@@ -211,7 +211,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "adijdgf41wh6oc"
+        "uid": "ddk4sl1vxmr5sa"
       },
       "description": "System load  over all CPU cores together",
       "fieldConfig": {
@@ -281,7 +281,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "adijdgf41wh6oc"
+            "uid": "ddk4sl1vxmr5sa"
           },
           "editorMode": "code",
           "expr": "scalar(node_load1{instance=\"localhost:9100\",job=\"node_exporter\"}) * 100 / count(count(node_cpu_seconds_total{instance=\"localhost:9100\",job=\"node_exporter\"}) by (cpu))",
@@ -297,7 +297,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "adijdgf41wh6oc"
+        "uid": "ddk4sl1vxmr5sa"
       },
       "description": "Total number of CPU cores",
       "fieldConfig": {
@@ -372,7 +372,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "adijdgf41wh6oc"
+        "uid": "ddk4sl1vxmr5sa"
       },
       "description": "System uptime",
       "fieldConfig": {
@@ -464,7 +464,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "adijdgf41wh6oc"
+        "uid": "ddk4sl1vxmr5sa"
       },
       "fieldConfig": {
         "defaults": {
@@ -543,7 +543,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "adijdgf41wh6oc"
+            "uid": "ddk4sl1vxmr5sa"
           },
           "editorMode": "code",
           "expr": "irate(http_requests_total{handler=\"/api/v1/applications/{id}\", method=\"GET\", status=\"2xx\"}[1m])",
@@ -559,7 +559,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "adijdgf41wh6oc"
+        "uid": "ddk4sl1vxmr5sa"
       },
       "fieldConfig": {
         "defaults": {
@@ -638,7 +638,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "adijdgf41wh6oc"
+            "uid": "ddk4sl1vxmr5sa"
           },
           "editorMode": "code",
           "expr": "irate(http_requests_total{handler=\"/api/v1/applications/{id}\", method=\"GET\", status=\"5xx\"}[1m])",
@@ -654,7 +654,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "adijdgf41wh6oc"
+        "uid": "ddk4sl1vxmr5sa"
       },
       "fieldConfig": {
         "defaults": {
@@ -736,7 +736,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "adijdgf41wh6oc"
+            "uid": "ddk4sl1vxmr5sa"
           },
           "editorMode": "code",
           "expr": "sum(irate(http_request_duration_seconds_sum[1m]))/sum(irate(http_requests_total[1m]))\n",
@@ -752,7 +752,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "adijdgf41wh6oc"
+        "uid": "ddk4sl1vxmr5sa"
       },
       "fieldConfig": {
         "defaults": {
@@ -831,7 +831,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "adijdgf41wh6oc"
+            "uid": "ddk4sl1vxmr5sa"
           },
           "editorMode": "code",
           "expr": "(sum (irate(http_requests_total{handler=\"/api/v1/applications/{id}\", method=\"GET\", status=\"5xx\"}[1m]))/\nsum (irate(http_requests_total[1m])))",
@@ -860,7 +860,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "adijdgf41wh6oc"
+        "uid": "ddk4sl1vxmr5sa"
       },
       "fieldConfig": {
         "defaults": {
@@ -924,7 +924,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "adijdgf41wh6oc"
+            "uid": "ddk4sl1vxmr5sa"
           },
           "expr": "pg_static{release=\"$release\", instance=\"$instance\"}",
           "format": "time_series",
@@ -940,7 +940,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "adijdgf41wh6oc"
+        "uid": "ddk4sl1vxmr5sa"
       },
       "fieldConfig": {
         "defaults": {
@@ -1004,7 +1004,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "adijdgf41wh6oc"
+            "uid": "ddk4sl1vxmr5sa"
           },
           "editorMode": "code",
           "expr": "pg_settings_max_connections{release=\"$release\", instance=\"$instance\"}",
@@ -1020,7 +1020,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "adijdgf41wh6oc"
+        "uid": "ddk4sl1vxmr5sa"
       },
       "fieldConfig": {
         "defaults": {
@@ -1100,7 +1100,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "adijdgf41wh6oc"
+            "uid": "ddk4sl1vxmr5sa"
           },
           "editorMode": "code",
           "expr": "pg_stat_activity_count{state=\"active\"}\n",
@@ -1128,7 +1128,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "adijdgf41wh6oc"
+          "uid": "ddk4sl1vxmr5sa"
         },
         "definition": "query_result(pg_exporter_last_scrape_duration_seconds{kubernetes_namespace=\"$namespace\"})",
         "hide": 0,
@@ -1156,7 +1156,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "adijdgf41wh6oc"
+          "uid": "ddk4sl1vxmr5sa"
         },
         "definition": "query_result(pg_up{release=\"$release\"})",
         "hide": 0,
@@ -1185,7 +1185,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "adijdgf41wh6oc"
+          "uid": "ddk4sl1vxmr5sa"
         },
         "definition": "query_result(pg_exporter_last_scrape_duration_seconds)",
         "hide": 0,
