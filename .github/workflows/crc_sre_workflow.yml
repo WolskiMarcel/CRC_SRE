@@ -61,7 +61,7 @@ jobs:
               email_configs:
               - to: ${{ secrets.EMAIL_TO }}
                 from: ${{ secrets.EMAIL_FROM }}
-                smarthost: ${{ secrets.SMARTHOST }}
+                smarthost: ${{ secrets.EMAIL_SMARTHOST }}
                 auth_username: ${{ secrets.EMAIL_FROM }}
                 auth_identity: ${{ secrets.EMAIL_FROM }}
                 auth_password: ${{ secrets.EMAIL_PASS }}
