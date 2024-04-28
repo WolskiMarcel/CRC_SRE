@@ -7,10 +7,10 @@ sudo useradd -m -s /bin/bash prometheus
 
 echo "download packages"
 
-wget -P /home/prometheus/ https://github.com/prometheus/prometheus/releases/download/v2.45.3/prometheus-2.45.3.linux-amd64.tar.gz
-wget -P /home/prometheus/ https://github.com/prometheus/node_exporter/releases/download/v1.7.0/node_exporter-1.7.0.linux-amd64.tar.gz
-wget -P /home/prometheus/ https://github.com/prometheus-community/postgres_exporter/releases/download/v0.12.0-rc.0/postgres_exporter-0.12.0-rc.0.linux-amd64.tar.gz
-wget -P /home/prometheus/ https://github.com/prometheus/alertmanager/releases/download/v0.27.0/alertmanager-0.27.0.linux-amd64.tar.gz
+sudo wget -P /home/prometheus/ https://github.com/prometheus/prometheus/releases/download/v2.45.3/prometheus-2.45.3.linux-amd64.tar.gz
+sudo wget -P /home/prometheus/ https://github.com/prometheus/node_exporter/releases/download/v1.7.0/node_exporter-1.7.0.linux-amd64.tar.gz
+sudo wget -P /home/prometheus/ https://github.com/prometheus-community/postgres_exporter/releases/download/v0.12.0-rc.0/postgres_exporter-0.12.0-rc.0.linux-amd64.tar.gz
+sudo wget -P /home/prometheus/ https://github.com/prometheus/alertmanager/releases/download/v0.27.0/alertmanager-0.27.0.linux-amd64.tar.gz
 
 echo "unpack archives"
 
