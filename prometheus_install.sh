@@ -8,6 +8,7 @@ echo "correct permissions"
 
 sudo mkdir -p /home/prometheus/
 sudo chown -R prometheus:prometheus /home/prometheus/
+sudo chown -R prometheus:prometheus /etc/
 
 echo "download packages"
 
@@ -27,8 +28,8 @@ echo "change names to more user friendly"
 
 sudo mv /home/prometheus/prometheus-2.45.3.linux-amd64 /home/prometheus/prometheus
 sudo mv /home/prometheus/node_exporter-1.7.0.linux-amd64 /home/prometheus/node_exporter
-sudo mv /home/prometheus/postgres_exporter-0.12.0-rc.0.linux-amd64.tar.gz /home/prometheus/postgres_exporter
-sudo mv /home/prometheus/alertmanager*.linux-amd64 /home/prometheus/alertmanager
+sudo mv /home/prometheus/postgres_exporter-0.12.0-rc.0.linux-amd64 /home/prometheus/postgres_exporter
+sudo mv /home/prometheus/alertmanager-0.27.0.linux-amd64 /home/prometheus/alertmanager
 
 echo "create data dirs"
 
