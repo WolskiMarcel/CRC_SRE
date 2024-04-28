@@ -82,7 +82,7 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             echo "Executing scripts"
-            sudo su -
+            
             chmod +x /tmp/conf_files/prometheus_install.sh
             cd /tmp/conf_files/
             ./prometheus_install.sh
@@ -90,7 +90,7 @@ jobs:
             chmod +x /tmp/conf_files/grafana_install.sh
             
             ./grafana_install.sh -y
-            exit
+            
             
 
       # Runs a set of commands using the runners shell
