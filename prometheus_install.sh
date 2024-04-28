@@ -8,7 +8,6 @@ echo "correct permissions"
 
 sudo mkdir -p /home/prometheus/
 sudo chown -R prometheus:prometheus /home/prometheus/
-sudo chown -R prometheus:prometheus /etc/
 
 echo "download packages"
 
