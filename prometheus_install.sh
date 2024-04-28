@@ -42,7 +42,7 @@ sudo mv -f /tmp/conf_files/alertmanager.yml /home/prometheus/alertmanager/alertm
 
 echo "create prometheus service file"
 
-sudo cat > /etc/systemd/system/prometheus.service << EOF
+cat > /etc/systemd/system/prometheus.service << EOF
 [Unit]
 Description=Prometheus Server
 Wants=network-online.target
@@ -59,7 +59,7 @@ EOF
 
 echo "create node_exporter service file"
 
-sudo cat > /etc/systemd/system/node_exporter.service << EOF
+cat > /etc/systemd/system/node_exporter.service << EOF
 [Unit]
 Description=Node Exporter
 Wants=network-online.target
@@ -79,7 +79,7 @@ sudo cat >  /home/prometheus/postgres_exporter/postgres_exporter.env << EOF
 DATA_SOURCE_NAME="postgresql://postgres:postgres@localhost:5432/applications?sslmode=disable"
 EOF
 
-sudo cat > /etc/systemd/system/postgres_exporter.service << EOF
+cat > /etc/systemd/system/postgres_exporter.service << EOF
 [Unit]
 Description=Prometheus exporter for Postgresql
 Wants=network-online.target
@@ -98,7 +98,7 @@ EOF
 
 echo "create alertmanager service files"
 
-sudo cat > /etc/systemd/system/alertmanager.service << EOF
+cat > /etc/systemd/system/alertmanager.service << EOF
 [Unit]
 Description=alertmanager
 Wants=network-online.target
