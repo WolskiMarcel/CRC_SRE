@@ -7,6 +7,7 @@ sudo useradd -m -s /bin/bash prometheus
 
 echo "correct permissions"
 
+sudo mkdir -p /home/prometheus/
 sudo chown -R prometheus:prometheus /home/prometheus/
 
 echo "download packages"
