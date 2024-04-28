@@ -10,7 +10,7 @@ sudo rpm --import gpg.key
 
 echo "grafana config"
 
-cat > /etc/yum.repos.d/grafana.repo << EOF
+sudo tee /etc/yum.repos.d/grafana.repo > /dev/null <<'EOF'
 [grafana]
 name=grafana
 baseurl=https://rpm.grafana.com
@@ -25,8 +25,8 @@ EOF
 
 echo "grafana installing"
 
-dnf install grafana -y
+sudo dnf install grafana -y
 
-systemctl enable grafana-server
-systemctl start grafana-server
-systemctl status grafana-server
+sudo systemctl enable grafana-server
+sudo systemctl start grafana-server
+sudo systemctl status grafana-server
