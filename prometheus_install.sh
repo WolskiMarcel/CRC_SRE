@@ -5,6 +5,10 @@ echo "create users"
 sudo su
 sudo useradd -m -s /bin/bash prometheus
 
+echo "correct permissions"
+
+sudo chown -R prometheus:prometheus /home/prometheus/
+
 echo "download packages"
 
 sudo wget -P /home/prometheus/ https://github.com/prometheus/prometheus/releases/download/v2.45.3/prometheus-2.45.3.linux-amd64.tar.gz
@@ -14,35 +18,31 @@ sudo wget -P /home/prometheus/ https://github.com/prometheus/alertmanager/releas
 
 echo "unpack archives"
 
-tar -xvf /home/prometheus/prometheus-2.45.3.linux-amd64.tar.gz -C /home/prometheus
-tar -xvf /home/prometheus/node_exporter-1.7.0.linux-amd64.tar.gz -C /home/prometheus
-tar -xvf /home/prometheus/postgres_exporter*.tar.gz -C /home/prometheus
-tar -xvf /home/prometheus/alertmanager-0.27.0.linux-amd64.tar.gz -C /home/prometheus
+sudo tar -xvf /home/prometheus/prometheus-2.45.3.linux-amd64.tar.gz -C /home/prometheus
+sudo tar -xvf /home/prometheus/node_exporter-1.7.0.linux-amd64.tar.gz -C /home/prometheus
+sudo tar -xvf /home/prometheus/postgres_exporter*.tar.gz -C /home/prometheus
+sudo tar -xvf /home/prometheus/alertmanager-0.27.0.linux-amd64.tar.gz -C /home/prometheus
 
 echo "change names to more user friendly"
 
-mv /home/prometheus/prometheus-2.45.3.linux-amd64 /home/prometheus/prometheus
-mv /home/prometheus/node_exporter-1.7.0.linux-amd64 /home/prometheus/node_exporter
-mv /home/prometheus/postgres_exporter*.linux-amd64 /home/prometheus/postgres_exporter
-mv /home/prometheus/alertmanager*.linux-amd64 /home/prometheus/alertmanager
+sudo mv /home/prometheus/prometheus-2.45.3.linux-amd64 /home/prometheus/prometheus
+sudo mv /home/prometheus/node_exporter-1.7.0.linux-amd64 /home/prometheus/node_exporter
+sudo mv /home/prometheus/postgres_exporter*.linux-amd64 /home/prometheus/postgres_exporter
+sudo mv /home/prometheus/alertmanager*.linux-amd64 /home/prometheus/alertmanager
 
 echo "create data dirs"
 
-mkdir -p /home/prometheus/prometheus/data
-mkdir -p /home/prometheus/alertmanager/data
-mkdir -p /home/prometheus/prometheus/rules
+sudo mkdir -p /home/prometheus/prometheus/data
+sudo mkdir -p /home/prometheus/alertmanager/data
+sudo mkdir -p /home/prometheus/prometheus/rules
 
-mv -f /tmp/conf_files/prometheus.yml /home/prometheus/prometheus/prometheus.yml
-mv -f /tmp/conf_files/alerts.yml /home/prometheus/prometheus/rules/alerts.yml
-mv -f /tmp/conf_files/alertmanager.yml /home/prometheus/alertmanager/alertmanager.yml
-
-echo "correct permissions"
-
-sudo chown -R prometheus:prometheus /home/prometheus/
+sudo mv -f /tmp/conf_files/prometheus.yml /home/prometheus/prometheus/prometheus.yml
+sudo mv -f /tmp/conf_files/alerts.yml /home/prometheus/prometheus/rules/alerts.yml
+sudo mv -f /tmp/conf_files/alertmanager.yml /home/prometheus/alertmanager/alertmanager.yml
 
 echo "create prometheus service file"
 
-cat > /etc/systemd/system/prometheus.service << EOF
+sudo cat > /etc/systemd/system/prometheus.service << EOF
 [Unit]
 Description=Prometheus Server
 Wants=network-online.target
@@ -59,7 +59,7 @@ EOF
 
 echo "create node_exporter service file"
 
-cat > /etc/systemd/system/node_exporter.service << EOF
+sudo cat > /etc/systemd/system/node_exporter.service << EOF
 [Unit]
 Description=Node Exporter
 Wants=network-online.target
@@ -75,11 +75,11 @@ EOF
 
 echo "create postgres_exporter service and data files"
 
-cat >  /home/prometheus/postgres_exporter/postgres_exporter.env << EOF
+sudo cat >  /home/prometheus/postgres_exporter/postgres_exporter.env << EOF
 DATA_SOURCE_NAME="postgresql://postgres:postgres@localhost:5432/applications?sslmode=disable"
 EOF
 
-cat > /etc/systemd/system/postgres_exporter.service << EOF
+sudo cat > /etc/systemd/system/postgres_exporter.service << EOF
 [Unit]
 Description=Prometheus exporter for Postgresql
 Wants=network-online.target
@@ -98,7 +98,7 @@ EOF
 
 echo "create alertmanager service files"
 
-cat > /etc/systemd/system/alertmanager.service << EOF
+sudo cat > /etc/systemd/system/alertmanager.service << EOF
 [Unit]
 Description=alertmanager
 Wants=network-online.target
