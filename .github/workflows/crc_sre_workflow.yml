@@ -32,7 +32,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          source: "alerts.yml,grafana_install.sh,postgres_exporter.env,prometheus.yml,prometheus_install.sh"
+          source: "alerts.yml,grafana_install.sh,prometheus.yml,prometheus_install.sh,grafana.json"
           target: /tmp/conf_files/
 
       - name: create alert file
@@ -89,7 +89,7 @@ jobs:
 
             chmod +x /tmp/conf_files/grafana_install.sh
             
-            ./grafana_install.sh
+            ./grafana_install.sh -y
             exit
             
 
