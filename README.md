@@ -16,6 +16,8 @@ Project is created with:
 * Grafana
 
 ## Urgent
+Regarding Grafana dashboards, you can upload the .json file itself to have the charts, however, you need to change the value of UID in the file to your own for it to work.
+
 Disabling SELinux (Security-Enhanced Linux) may be necessary when an application, such as Prometheus, encounters restrictions related to SELinux security policies.
 The execution of the command
 ```
@@ -28,6 +30,7 @@ $ sudo vi /etc/selinux/config
 ```
 Find the line that starts with SELINUX=. The value of this line determines the SELinux mode.
 Change the value from SELINUX=enforcing to SELINUX=permissive. Make sure to save the changes. Save the file and exit the editor.
+
 
 
 ### Additional info
