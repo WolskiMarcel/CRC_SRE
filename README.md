@@ -16,7 +16,7 @@ Project is created with:
 * Grafana
 
 ## Urgent
-Regarding Grafana dashboards, you can upload the .json file itself to have the charts, however, you need to change the value of UID in the file to your own for it to work.
+### Before running the script
 
 Disabling SELinux (Security-Enhanced Linux) may be necessary when an application, such as Prometheus, encounters restrictions related to SELinux security policies.
 The execution of the command
@@ -31,9 +31,10 @@ $ sudo vi /etc/selinux/config
 Find the line that starts with SELINUX=. The value of this line determines the SELinux mode.
 Change the value from SELINUX=enforcing to SELINUX=permissive. Make sure to save the changes. Save the file and exit the editor.
 
+### For working Grafana
+Regarding Grafana dashboards, you can upload the .json file itself to have the charts, however, you need to change the value of UID in the file to your own for it to work.
 
-
-### Additional info
+## Additional info
 The VM already has a working app in Swagger. I've also written a program to collect API data in Python (which I will add to repo soon), before I realized I already had prepared app. Anyway, I used the prepared, ready-made one.
 
 ### Good to remember
