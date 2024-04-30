@@ -15,6 +15,21 @@ Project is created with:
 * Postgresql
 * Grafana
 
+## Urgent
+Disabling SELinux (Security-Enhanced Linux) may be necessary when an application, such as Prometheus, encounters restrictions related to SELinux security policies.
+The execution of the command
+```
+$ sudo setenforce 0
+```
+should work, however, it may not always be guaranteed to work, and if it does, it's only until the machine is restarted.
+Changing the SELinux configuration file will ensure a persistent change in the SELinux mode after the system is restarted. To do this, you need to use the command:
+```
+$ sudo vi /etc/selinux/config
+```
+Find the line that starts with SELINUX=. The value of this line determines the SELinux mode.
+Change the value from SELINUX=enforcing to SELINUX=permissive. Make sure to save the changes. Save the file and exit the editor.
+
+
 ### Additional info
 The VM already has a working app in Swagger. I've also written a program to collect API data in Python (which I will add to repo soon), before I realized I already had prepared app. Anyway, I used the prepared, ready-made one.
 
